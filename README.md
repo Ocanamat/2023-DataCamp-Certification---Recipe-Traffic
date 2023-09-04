@@ -85,12 +85,16 @@ The data was cleaned per column each column, after splitting in train / test set
 Being a binary classification project, the models were evaluated on the basis of their **ROC-AUC score**, **accuracy** and **F1 scores**.  
 An initial battery of blank models was trained and tested: 
 
+
+![models](presentation/models.png =70%x) ![scores](presentation/models_scores.png =30%x)
+
+<!-- 
 |               Models               |                     Scores                      |
 | :--------------------------------: | :---------------------------------------------: |
 | ![models](presentation/models.png) | ![model_scores](presentation/models_scores.png) |
- 
+-->
 
-After hyperparameter tuning and comparing models' performances against test sets, the best performing model was a *blank* support vector machine with an ROC-AUC score of **74.9%**, an accuracy of  **77.2%** and an F1 Score of **82.2%**. 
+After hyperparameter tuning and comparing models' performances against test sets, the best performing model was a *blank* support vector machine with an ROC-AUC score of **74.9%**, an accuracy of  **77.2%** and a F1 Score of **82.2%**. 
 
 ## Future work
 - Convert the outlier treatment to an standalone package.
