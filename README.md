@@ -1,6 +1,7 @@
-![Covert](presentation/cover.jpg|width=300px)
+ <!-- ![Cover](presentation/cover.jpg | width=300px) -->
+<img src="presentation/cover.jpg" width="300">
 
-# Project Title
+# DataCamp Professional Certificaion - Recipe Traffic Analysis
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic?include_prereleases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
