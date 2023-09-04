@@ -1,13 +1,13 @@
-![Alt text](presentation/cover.jpg)
+![Alt text](presentation/cover.jpg | width=100)
 
 # Project Title
 
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/pragyy/datascience-readme-template?include_prereleases)
-![GitHub last commit](https://img.shields.io/github/last-commit/pragyy/datascience-readme-template)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/pragyy/datascience-readme-template)
-![GitHub](https://img.shields.io/github/license/pragyy/datascience-readme-template)
-![contributors](https://img.shields.io/github/contributors/pragyy/datascience-readme-template) 
-![codesize](https://img.shields.io/github/languages/code-size/pragyy/datascience-readme-template) 
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic?include_prereleases)
+![GitHub last commit](https://img.shields.io/github/last-commit/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
+![GitHub](https://img.shields.io/github/license/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
+![contributors](https://img.shields.io/github/contributors/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic) 
+![codesize](https://img.shields.io/github/languages/code-size/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic) 
 
 > A guide to writing an amazing readme for your data science project.
 
