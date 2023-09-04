@@ -5,7 +5,6 @@
 
 # DataCamp Professional Certification - Popular Recipes Prediction
 
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic?include_prereleases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
 ![GitHub](https://img.shields.io/github/license/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
