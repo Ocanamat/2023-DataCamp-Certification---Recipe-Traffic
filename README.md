@@ -1,7 +1,9 @@
  <!-- ![Cover](presentation/cover.jpg | width=300px) -->
-<img src="presentation/cover.jpg" width="300">
+<p align="center">
+    <img src="presentation/cover.jpg" width="300">
+</p>
 
-# DataCamp Professional Certificaion - Recipe Traffic Analysis
+# DataCamp Professional Certification - Popular Recipes Prediction
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic?include_prereleases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic)
@@ -10,90 +12,86 @@
 ![contributors](https://img.shields.io/github/contributors/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic) 
 ![codesize](https://img.shields.io/github/languages/code-size/Ocanamat/2023-DataCamp-Certification---Recipe-Traffic) 
 
-> A guide to writing an amazing readme for your data science project.
+This repository holds a notebook and a presentation used for the Datacamp Professional Data Scientist Certification exam. The goal of the project was, given a dataset sampling data from an online recipe builder / recommendation service, predict which recipes were popular and resulted in higher traffice to the rest of the service's site.  
 
-The project title should be concise and self-explanatory so that the user can easily remember your project.
+## Table of Contents
 
-Add a cover banner to the top of your Readme to catch the attention of your readers.
-I usually include images that are relevant to my project, and you can easily find any image for free online without worrying about copyright issues. However, if the work is not free, make sure to credit the proper owners in the references/acknowledgement section.
+1. [DataCamp Professional Certification - Popular Recipes Prediction](#datacamp-professional-certification---popular-recipes-prediction)
+   1. [Table of Contents](#table-of-contents)
+   2. [Installation and Setup](#installation-and-setup)
+      1. [Codes and Resources Used](#codes-and-resources-used)
+      2. [Python Packages Used](#python-packages-used)
+   3. [Data](#data)
+      1. [Source Data](#source-data)
+      2. [Data Preprocessing](#data-preprocessing)
+         1. [Data Validation](#data-validation)
+         2. [Feature Transformation / Engineering](#feature-transformation--engineering)
+   4. [Results and evaluation](#results-and-evaluation)
+   5. [Future work](#future-work)
+   6. [License](#license)
 
-The colorful tiles beneath the title are known as badges, and they improve readability by providing quick insights into the github repository. I use [Shields IO](https://shields.io/). Depending on the project you can use the ones that are relevant. 
+## Installation and Setup
+The analysis is presented as a Jupyter notebook in [notebook.ipynb](notebook.ipynb).
 
-# Project Overview
+### Codes and Resources Used
+- **Python Version:** 3.10
 
-In this section you should provide a brief overview of the project, what it is about, and what it aims to achieve. This will help readers quickly understand what the project is all about.
+### Python Packages Used
 
-# Installation and Setup
+- **General Purpose:** `warnigns, random` .
+- **Data Validation:**  `chardet, missgingno` .
+- **Data Manipulation:** `pandas, numpy` .
+- **Statistical Analysis:** `statsmodels, scipy, pingouin`
+- **Data Visualization:** `seaborn, matplotlib` .
+- **Machine Learning:** `scikit-learn` .
 
-In this section, provide detailed instructions on how to set up the project on a local machine. This includes any necessary dependencies, software requirements, and installation steps. Make sure to include clear and concise instructions so that others can easily replicate your setup.
+## Data
 
-I like to structure it as below - 
-## Codes and Resources Used
-In this section I give user the necessary information about the software requirements.
-- **Editor Used:**  Informing the user of the editor used to produce the project.
-- **Python Version:** Informing the user of the version of python used for this project. If you are using some other language such as R, you can mention that as well.
+### Source Data
+The dataset consists of 947 rows with the following columns specified by the business:
 
-## Python Packages Used
-In this section, I include all the necessary dependencies needed to reproduce the project, so that the reader can install them before replicating the project. I categorize the long list of packages used as - 
-- **General Purpose:** General purpose packages like `urllib, os, request`, and many more.
-- **Data Manipulation:** Packages used for handling and importing dataset such as `pandas, numpy` and others.
-- **Data Visualization:** Include packages which were used to plot graphs in the analysis or for understanding the ML modelling such as `seaborn, matplotlib` and others.
-- **Machine Learning:** This includes packages that were used to generate the ML model such as `scikit, tensorflow`, etc.
+ | Column Name  | Type      | Details                                                                                                                                                                                        |
+ | ------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | recipe       | Numeric   | unique identifier of recipe                                                                                                                                                                    |
+ | calories     | Numeric   | number of calories                                                                                                                                                                             |
+ | carbohydrate | Numeric   | amount of carbohydrates in grams                                                                                                                                                               |
+ | sugar        | Numeric   | amount of sugar in grams                                                                                                                                                                       |
+ | protein      | Numeric   | amount of protein in grams                                                                                                                                                                     |
+ | category     | Character | type of recipe. Recipes are listed in one of ten possible groupings (Lunch/Snacks', 'Beverages',  'Potato', 'Vegetable', 'Meat', 'Chicken,  'Pork',  'Dessert', 'Breakfast', 'One Dish Meal'). |
+ | servings     | Numeric   | number of servings for the recipe                                                                                                                                                              |
+ | high_traffic | Character | if the traffic to the site was high when this recipewas shown, this is marked with “High”                                                                                                      |
 
-The level of granularity you want to provide for the above list is entirely up to you. You can also add a few more levels, such as those for statistical analysis or data preparation, or you can simply incorporate them into the above list as is.
+### Data Preprocessing
 
-# Data
+The data was cleaned per column each column, after splitting in train / test sets to prevent data leakage before training the models.
 
-The very crucial part of any data science project is dataset. Therefore list all the data sources used in the project, including links to the original data, descriptions of the data, and any pre-processing steps that were taken.
+#### Data Validation
 
-I structure this as follows - 
+- 'high_traffic' has been converted to boolean assigning "True" to 'High' and "False" to the nulls.  
+- 'servings' only contains the numerical {1,2,4,6} values.  
+- 'recipe' has been used as index and dropped as variable.  
+- Within the 'category' column 'Chicken Breast' has been converted to 'Chicken'.  
 
-## Source Data
-In this section, I list all of the data that was used, along with the source link and a few lines that describe each data. You can also explain each of the data attributes in greater detail if you wish.
+#### Feature Transformation / Engineering
+  
+- Data has been split into a train and test set, with a 25% holdout.  
+- Missing values have been imputed using the column medians for each grouping of category/serving, given that for all missing values these two pieces of information were still available.
+- Outliers have been identified using the IQR method and transformed using a robust quantile regressor.
+- A Box-Cox transformation has been applied to all numerical columns to alleviate the skewness and bring them closer to normally distributed variables.
+- A normalization has been applied to fit the numerical columns ranges to [0,1].
+- After inspecting the statistical significance of 'servings' as a numerical column, it was concluded that it can be considered a categorical variable and it was one-hot encoded along with the 'category' column.
 
-## Data Acquisition
-Data collection is not always as simple as downloading from Kaggle or any open source website; it can also be gathered through API calls or online scraping. So you can elaborate on this step in this section so that the reader can obtain the dataset by following your instructions.
+## Results and evaluation
+Being a binary classification project, the models were evaluated on the basis of their **ROC-AUC score**, **accuracy** and **F1 scores**.  
+An initial battery of blank models was trained and tested: 
+![models](presentation/models.png) ![model_scores](presentation/models_scores.png)
 
-## Data Preprocessing
-Acquired data is not always squeaky clean, so preprocessing them are an integral part of any data analysis. In this section you can talk about the same.
+After hyperparameter tuning and comparing models' performances against test sets, the best performing model was a *blank* support vector machine with an ROC-AUC score of **74.9%**, an accuracy of  **77.2%** and an F1 Score of **82.2%**. 
 
-# Code structure
-Explain the code structure and how it is organized, including any significant files and their purposes. This will help others understand how to navigate your project and find specific components. 
+## Future work
+- Convert the outlier treatment to an standalone package.
+- Explore a better feature selection process.
+- Revisit hyperparmeter tuning, having identified importan features and patters, in order to obtain higher scoring models.
 
-Here is the basic suggested skeleton for your data science repo (you can structure your repository as needed ):
-
-```bash
-├── data
-│   ├── data1.csv
-│   ├── data2.csv
-│   ├── cleanedData
-│       ├── cleaneddata1.csv
-|       └── cleaneddata2.csv
-├── data_acquisition.py
-├── data_preprocessing.ipynb
-├── data_analysis.ipynb
-├── data_modelling.ipynb
-├── Img
-│   ├── img1.png
-│   └── Headerheader.jpg
-├── LICENSE
-├── README.md
-└── .gitignore
-```
-
-# Results and evaluation
-Provide an overview of the results of your project, including any relevant metrics and graphs. Include explanations of any evaluation methodologies and how they were used to assess the quality of the model. You can also make it appealing by including any pictures of your analysis or visualizations.
-
-# Future work
-Outline potential future work that can be done to extend the project or improve its functionality. This will help others understand the scope of your project and identify areas where they can contribute.
-
-# Acknowledgments/References
-Acknowledge any contributors, data sources, or other relevant parties who have contributed to the project. This is an excellent way to show your appreciation for those who have helped you along the way.
-
-For instance, I am referencing the image that I used for my readme header - 
-- Image by [rashadashurov](https://www.vectorstock.com/royalty-free-vector/data-science-cartoon-template-with-flat-elements-vector-27984292)
-
-# License
-Specify the license under which your code is released. Moreover, provide the licenses associated with the dataset you are using. This is important for others to know if they want to use or contribute to your project. 
-
-For this github repository, the License used is [MIT License](https://opensource.org/license/mit/).
+## License
+This github repository is published under the [MIT License](https://opensource.org/license/mit/).
