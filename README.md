@@ -1,4 +1,4 @@
-![Alt text](presentation/cover.jpg =250x250)
+![Alt text](presentation/cover.jpg|width=100px)
 
 # Project Title
 
