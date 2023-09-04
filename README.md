@@ -44,6 +44,7 @@ The analysis is presented as a Jupyter notebook in [notebook.ipynb](notebook.ipy
 - **Statistical Analysis:** `statsmodels, scipy, pingouin`
 - **Data Visualization:** `seaborn, matplotlib` .
 - **Machine Learning:** `scikit-learn` .
+- **Presentation:** [`marp`](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) .
 
 ## Data
 
